@@ -1,0 +1,625 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Shantell+Sans:wght@700&family=Sono:wght@500&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.flex {
+  display: flex;
+}
+
+.v-center {
+  align-items: center;
+}
+
+.h-center {
+  justify-content: center;
+}
+
+:root {
+  --theme-green: #e714e4bd /*rgb(97, 255, 192) */;
+  --theme-bg: #121212;
+  --theme-white: aliceblue;
+}
+
+.no-bullets {
+  list-style-type: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+body {
+  background: black;
+  color: aliceblue;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#left-sec li:hover,
+.track:hover,
+.song-container li:hover {
+  opacity: 0.5;
+}
+
+#left-sec ul li,
+#logo,
+.queue-img,
+.track {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/*-----  header start  ------*/
+
+header {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  z-index: 1;
+  background: var(--theme-bg);
+  justify-content: space-between;
+}
+
+#logo {
+  flex-flow: row nowrap;
+}
+
+#logo i {
+  color: var(--theme-green);
+  font-size: 50px;
+  margin-left: 20px;
+}
+
+#logo h2 {
+  color: var(--theme-green);
+  display: inline-block;
+  text-align: center;
+  line-height: 0.8;
+  font-family: "Shantell Sans", cursive;
+  padding-right: 20px;
+}
+
+#search-container {
+  background: #4b4f665f;
+  border-radius: 25px;
+  width: 40%;
+  margin: 20px;
+}
+
+::placeholder {
+  color: aliceblue;
+  opacity: 1;
+}
+
+.search {
+  background-color: transparent;
+  border: none;
+  height: 35px;
+}
+
+.searchbar {
+  width: 90%;
+  border-radius: 25px 0 0 25px;
+  padding: 0px 20px;
+  color: var(--theme-white);
+}
+
+.search-btn {
+  border-radius: 0 25px 25px 0;
+  width: 10%;
+}
+
+.fa-magnifying-glass {
+  color: var(--theme-green);
+  font-size: large;
+}
+
+.profile {
+  width: 38px;
+  border-radius: 50%;
+}
+
+.nav-right i {
+  color: var(--theme-green);
+  font-size: 25px;
+}
+
+.nav-right li {
+  margin: 10px 40px 10px 0px;
+  list-style-type: none;
+}
+
+/* ------ header end ------- */
+
+/* ------ left section start -------  */
+
+#left-sec {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  background: var(--theme-bg);
+  width: 200px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  overflow: auto;
+  border-right: solid 1px var(--theme-green);
+}
+
+#left-sec ul {
+  font-size: 1rem;
+  list-style: none;
+  font-family: "lato";
+  font-weight: bold;
+  margin: 70px auto;
+}
+
+#left-sec ul li {
+  margin-bottom: 20px;
+}
+
+/* ------ left section end -------  */
+
+/* ------ main section start -------  */
+
+main {
+  min-height: 100vh;
+  background: #4b4f665f;
+  padding: 90px 160px 100px 270px;
+}
+
+/*------ carasoul ---------*/
+
+.carousel {
+  padding: 0 12%;
+  margin-bottom: 40px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  display: flex;
+}
+/* css of the 3d carousel */
+
+#slider {
+  float: left;
+  position: static;
+  max-width: 1000px;
+  min-width: 357px;
+  width: 100%;
+  height: 35vh;
+  margin: 0px 150px;
+  font-family: "Helvetica Neue", sans-serif;
+  perspective: 1400px;
+  transform-style: preserve-3d;
+  display: flex;
+}
+
+#slider label,
+#slider label img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  color: white;
+  font-size: 70px;
+  font-weight: bold;
+  border-radius: 3px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 400ms ease;
+}
+
+input[type="radio"] {
+  position: relative;
+  top: 108%;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  margin: 0 15px 0 0;
+  opacity: 0.4;
+  transform: translateX(-83px);
+  cursor: pointer;
+  display: none;
+}
+
+input[type="radio"]:nth-child(5) {
+  margin-right: 0px;
+}
+
+input[type="radio"]:checked {
+  opacity: 1;
+}
+
+#s1:checked ~ #slide1,
+#s2:checked ~ #slide2,
+#s3:checked ~ #slide3,
+#s4:checked ~ #slide4,
+#s5:checked ~ #slide5 {
+  box-shadow: 0 13px 26px rgba(0, 0, 0, 0.3), 0 12px 6px rgba(0, 0, 0, 0.2);
+  transform: translate3d(0%, 0, 0px);
+}
+
+#s1:checked ~ #slide2,
+#s2:checked ~ #slide3,
+#s3:checked ~ #slide4,
+#s4:checked ~ #slide5,
+#s5:checked ~ #slide1 {
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3), 0 2px 2px rgba(0, 0, 0, 0.2);
+  transform: translate3d(20%, 0, -50px);
+}
+
+#s1:checked ~ #slide3,
+#s2:checked ~ #slide4,
+#s3:checked ~ #slide5,
+#s4:checked ~ #slide1,
+#s5:checked ~ #slide2 {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  transform: translate3d(40%, 0, -250px);
+}
+
+#s1:checked ~ #slide5,
+#s2:checked ~ #slide1,
+#s3:checked ~ #slide2,
+#s4:checked ~ #slide3,
+#s5:checked ~ #slide4 {
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3), 0 2px 2px rgba(0, 0, 0, 0.2);
+  transform: translate3d(-42%, 0, -250px);
+}
+
+#s1:checked ~ #slide4,
+#s2:checked ~ #slide5,
+#s3:checked ~ #slide1,
+#s4:checked ~ #slide2,
+#s5:checked ~ #slide3 {
+  box-shadow: 0 1px 4px rgba(255, 255, 255, 0.4);
+  transform: translate3d(-25%, 0, -100px);
+}
+
+/*---------- caraossal end --------*/
+
+#song-section h1 {
+  margin-bottom: 20px;
+}
+
+.song-container {
+  justify-content: space-between;
+  flex-flow: wrap;
+  padding-left: 0;
+}
+
+.song-container li {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  transition: 0.4s;
+  border-radius: 2px;
+  margin-bottom: 10%;
+  font-size: 1rem;
+}
+
+.top-charts li a i {
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
+  color: var(--theme-green);
+  background: var(--theme-bg);
+  opacity: 0;
+  transition: opacity 0.4s;
+  border-radius: 50%;
+  font-size: xxx-large;
+}
+
+.top-charts li:hover a i {
+  opacity: 1;
+}
+
+.song-container li img {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+
+.song-container li p {
+  margin: 10px;
+  text-align: center;
+}
+
+.toggle {
+  position: absolute;
+  top: 1%;
+  right: 3%;
+  font-size: xx-large;
+}
+
+.popup-menu {
+  position: absolute;
+  left: -100px;
+  border-radius: 10px 0 10px 10px;
+  cursor: pointer;
+  width: 100px;
+
+  font-size: 0.8rem;
+  background-image: linear-gradient(var(--theme-green), var(--theme-bg));
+  flex-flow: column;
+  opacity: 0;
+}
+
+input[type="checkbox"]:checked + .popup-menu {
+  opacity: 1;
+}
+
+.song-container input[type="checkbox"] {
+  display: none;
+}
+
+.artist li {
+  border-radius: 50%;
+}
+
+.genere li {
+  width: 30%;
+}
+
+.genere1,
+.genere2,
+.genere3 {
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.genere1 {
+  background-image: url(assets/genere/1.jpg);
+}
+
+.genere2 {
+  background-image: url(assets/genere/2.jpg);
+}
+
+.genere3 {
+  background-image: url(assets/genere/3.jpg);
+}
+
+.genere1:hover,
+.genere2:hover,
+.genere3:hover {
+  background-size: 120%;
+}
+
+/* ------ main section end -------  */
+
+/* ------ right section start -------  */
+
+#queue {
+  position: fixed;
+  right: -300px;
+  top: 90px;
+  height: 70vh;
+  background: var(--theme-bg);
+  width: 400px;
+  padding: 10px 20px;
+  box-shadow: 0 0 20px whitesmoke;
+  transition: 0.5s 0.3s;
+  border-radius: 20px 0 0 20px;
+  overflow: hidden;
+}
+
+#queue:hover {
+  right: -50px;
+}
+
+#queue h2 {
+  margin: 10px 10px 20px 10px;
+}
+
+#queue-wrapper {
+  overflow: hidden scroll;
+  height: 83%;
+}
+
+#queue ol {
+  padding-left: 0;
+  font-size: 1.2rem;
+  flex-flow: column;
+}
+
+.s-no {
+  padding-right: 0;
+  transition: 0.3s 0.6s;
+  transform: scale(0, 0);
+}
+
+#queue:hover .s-no {
+  transform: none;
+  padding-right: 18px;
+}
+
+.queue-img {
+  width: 60px;
+  padding-right: 20px;
+  margin: 7px 0;
+  transition: 0.5s 0.1s;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+#queue .track {
+  flex-grow: 1;
+  flex-flow: column;
+  font-size: 0.85rem;
+}
+
+.artist {
+  font-size: x-small;
+  color: #9a9999;
+}
+
+.like {
+  padding-right: 20px;
+}
+
+.track-time {
+  padding-right: 25px;
+}
+
+/* ------ right section end -------  */
+
+/* ------ Bottom Music Player Start -------  */
+
+#player {
+  position: fixed;
+  bottom: 0%;
+  left: 0%;
+  width: 100%;
+  height: 80px;
+  z-index: 1;
+  padding: 5px 20px;
+  background: #282729;
+  justify-content: space-between;
+}
+
+#player .track {
+  flex-flow: column;
+  padding-left: 20px;
+}
+
+#player .track span {
+  font-size: small;
+  color: #b6b5b5;
+}
+
+.player-nav {
+  flex-flow: column;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+#player i {
+  margin: 1vw;
+}
+
+.fa-circle-play {
+  font-size: x-large;
+}
+
+.player-nav input {
+  width: 100%;
+}
+
+.player-slider {
+  width: 60%;
+  padding-bottom: 10px;
+}
+
+.player-settings {
+  align-items: center;
+}
+
+.fa-volume-low:hover input {
+  display: block;
+}
+
+#player i {
+  position: relative;
+}
+
+.player-settings input {
+  position: absolute;
+  right: -56px;
+  bottom: 100px;
+  transform: rotate(270deg);
+  display: none;
+}
+
+.player-nav span,
+.player-settings span {
+  font-size: 12px;
+  position: absolute;
+  top: -22px;
+  left: -5px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  opacity: 0;
+  transition: opacity 0.5s 0.5s;
+  background: var(--theme-bg);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+#player i:hover span {
+  opacity: 1;
+}
+
+/* ------ Bottom Music Player End -------  */
+
+/*------- Playlist Start ------*/
+
+#playlist-header {
+  background-image: linear-gradient(#e714e4bd 1%, var(--theme-bg));
+  width: 100%;
+  height: 35vh;
+  margin-bottom: 40px;
+  overflow-x: hidden;
+  align-items: center;
+  padding: 20px;
+}
+
+.playlist-sec-1 {
+  width: 200px;
+  height: 200px;
+  flex-flow: wrap;
+  margin-right: 30px;
+}
+
+#playlist-header div img {
+  width: 50%;
+  height: 50%;
+}
+
+.playlist-sec-2 {
+  flex-flow: column;
+  flex-grow: 1;
+}
+
+.playlist-sec-2 h1 {
+  font-size: 3rem;
+}
+
+.playlist-sec-2 p {
+  font-size: 1.3rem;
+}
+
+.playlist-sec-2 input {
+  width: 100px;
+  height: 30px;
+  border-radius: 20px;
+  background: var(--theme-green);
+}
+
+#playlist .track {
+  flex-grow: 1;
+  flex-flow: column;
+  font-size: 0.85rem;
+}
+
+#playlist ol {
+  padding-left: 0;
+  font-size: 1.2rem;
+  flex-flow: column;
+}
+
+/*------- Playlist End ------*/
