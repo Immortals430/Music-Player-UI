@@ -1,0 +1,12 @@
+/* global variables */
+$theme: rgb(200, 100, 255);
+$black: #121212;
+$text: white;
+
+@mixin display($d: flex, $jc: null, $ai: null, $fd: null, $g: null) {
+  display: $d;
+  justify-content: $jc;
+  align-items: $ai;
+  flex-direction: $fd;
+  gap: $g;
+}

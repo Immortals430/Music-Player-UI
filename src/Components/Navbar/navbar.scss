@@ -1,0 +1,86 @@
+@use "../../styles/partials" as *;
+
+@font-face {
+  font-family: "Heading";
+  src: url("../../assets/fonts/heading-font.woff") format("woff");
+}
+
+.nav-sec {
+  @include display($jc: space-between, $ai: center);
+  color: $theme;
+  background-color: $black;
+  padding: 0.7rem;
+  $navmiddlewidth: 40%;
+
+  .nav-middle {
+    width: $navmiddlewidth;
+  }
+
+  .nav-left,
+  .nav-right {
+    width: calc((100% - $navmiddlewidth) / 2);
+  }
+}
+
+.nav-left {
+  @include display($ai: center, $g: 0.4rem);
+  > div {
+    @include display($ai: center, $fd: column);
+    font-family: "Heading";
+  }
+}
+
+.nav-middle {
+  @include display($ai: center);
+  position: relative;
+  input {
+    width: 100%;
+    background-color: #282832;
+    border: none;
+    padding: 0.5rem 2.5rem 0.5rem 1.5rem;
+    border-radius: 1rem;
+    outline: none;
+    color: $text;
+
+    &::placeholder {
+      color: $text;
+    }
+  }
+
+  .search-icon {
+    position: absolute;
+    font-size: 1.2rem;
+    right: 0.6rem;
+  }
+}
+
+.nav-right {
+  @include display($jc: flex-end, $ai: center, $g: 2rem);
+  font-size: 1.5rem;
+
+  .avatar {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: gray;
+    border-radius: 50%;
+    border: 1px solid gray;
+    overflow: hidden;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .nav-sec {
+    padding: 0.7rem 1rem;
+    .nav-left,
+    .nav-right {
+      width: auto;
+    }
+  }
+  .nav-middle {
+    display: none;
+  }
+
+  .nav-right > svg {
+    display: none;
+  }
+}

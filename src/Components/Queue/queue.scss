@@ -1,0 +1,70 @@
+@use "../../styles/partials" as *;
+
+.queue-sec {
+  position: fixed;
+  right: -300px;
+  z-index: 80;
+  top: 100px;
+  height: 70dvh;
+  background: $black;
+  width: 400px;
+  padding: 10px 60px 10px 20px;
+  box-shadow: 0 0 20px whitesmoke;
+  transition: right 0.4s ease 0.3s;
+  border-radius: 1rem;
+  overflow: hidden;
+
+  h2 {
+    margin: 10px 10px 20px 10px;
+  }
+
+  &:hover {
+    right: -50px;
+  }
+
+  &:hover .s-no {
+    transform: none;
+    margin-right: 0.8rem;
+  }
+}
+
+.queue-list {
+  @include display($fd: column, $g: 1.3rem);
+  font-size: 1.2rem;
+  overflow: auto;
+  scrollbar-width: none;
+  height: 83%;
+
+  .song {
+    @include display($ai: center);
+  }
+
+  .s-no {
+    padding-right: 0;
+    transition: 0.3s 0.6s;
+    transform: scale(0, 0);
+  }
+  .track {
+    flex-grow: 1;
+    font-weight: normal;
+    font-size: 0.85rem;
+  }
+  small {
+    color: gray;
+  }
+
+  img {
+    width: 40px;
+    margin-right: 1.2rem;
+  }
+
+  .like {
+    margin: 0 0.8rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .queue-sec {
+    display: none;
+  }
+}

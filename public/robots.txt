@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /private/  # (Optional: Block sensitive routes)
+Sitemap: https://yourdomain.com/sitemap.xml  # (If you have one)

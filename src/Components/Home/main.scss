@@ -1,0 +1,48 @@
+.main-sec {
+  padding: 90px 160px 50px 270px;
+  background-color: #1d1d27;
+
+  h1 {
+    margin-bottom: 1rem;
+  }
+
+  > section {
+    margin-bottom: 3rem;
+  }
+}
+
+.list-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 2rem;
+
+  img {
+    display: block;
+  }
+
+  .card {
+    > div {
+      aspect-ratio: 1 / 1;
+      background-color: gray;
+    }
+    p {
+      margin: 0.7rem;
+      text-align: center;
+    }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .main-sec {
+    padding: 90px 160px 50px 40px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .list-container{
+    gap: 1rem;
+  }
+  .main-sec {
+    padding: 90px 1rem 50px 1rem;
+  }
+}

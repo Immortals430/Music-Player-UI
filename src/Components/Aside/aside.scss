@@ -1,0 +1,50 @@
+@use "../../styles/partials" as *;
+
+@font-face {
+  font-family: "Lato";
+  src: url("../../assets/fonts/lato.woff") format("woff");
+}
+
+.aside-sec {
+  height: 100dvh;
+  padding-top: 5rem;
+  background-color: $black;
+  border-right: 1px solid $theme;
+  font-family: "Lato";
+  font-weight: bold;
+
+  > div {
+    @include display($fd: column, $g: 1rem);
+    padding: 2rem 3rem 3rem;
+  }
+}
+
+.aside-sec1 {
+  border-bottom: 2px solid gray;
+  > div {
+    @include display($ai: center, $g: 0.4rem);
+    transition: color 0.2s ease;
+    cursor: pointer;
+
+    &:hover {
+      color: gray;
+    }
+  }
+}
+
+.aside-sec2 {
+  > div {
+    transition: color 0.2s ease;
+    cursor: pointer;
+
+    &:hover {
+      color: gray;
+    }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .aside-sec {
+    display: none;
+  }
+}
